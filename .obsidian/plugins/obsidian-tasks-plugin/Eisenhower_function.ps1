@@ -7,26 +7,26 @@ $filePath = "main.js"
 # read file
 $content = Get-Content -Raw -Path $filePath
 
-# escape $: `$ [https://ss64.com/ps/syntax-esc.html]
+# escape $: `$, escape `: `` [https://ss64.com/ps/syntax-esc.html]
 
 # replacements
 $replacements = @(
-    # strings for sections
+    # strings for sections, remove string "priority"
     @{
         OldValue = @"
-{e} priority
+} priority``}get
 "@
         NewValue = @"
-{e.replace("Highest","A důležité, spěchá").replace("High","B nedůležité, spěchá").replace("Medium","C důležité, nespěchá").replace("Lowest","E wishlist").replace("Low","D nedůležité, nespěchá").replace("Normal","Přiřadit")}
+.replace("Highest","A důležité, spěchá").replace("High","B nedůležité, spěchá").replace("Medium","C důležité, nespěchá").replace("Lowest","E wishlist").replace("Low","D nedůležité, nespěchá").replace("Normal","Přiřadit")}``}get
 "@
     },
     # strings for context menu and remove icon (because of accesskey); 
     @{
         OldValue = @"
-{T.toLowerCase()} priority
+toLowerCase()} priority
 "@
         NewValue = @"
-{T.toLowerCase().replace("highest","AA důležité, spěchá").replace("high","BB nedůležité, spěchá").replace("medium","CC důležité, nespěchá").replace("lowest","DD wishlist").replace("low","EE nedůležité, nespěchá")}
+toLowerCase().replace("highest","AA důležité, spěchá").replace("high","BB nedůležité, spěchá").replace("medium","CC důležité, nespěchá").replace("lowest","DD wishlist").replace("low","EE nedůležité, nespěchá")}
 "@
     }
 )
