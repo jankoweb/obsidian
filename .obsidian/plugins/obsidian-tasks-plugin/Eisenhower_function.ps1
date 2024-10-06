@@ -17,7 +17,7 @@ $replacements = @(
 } priority``}get
 "@
         NewValue = @"
-.replace("Highest","A důležité, spěchá").replace("High","B nedůležité, spěchá").replace("Medium","C důležité, nespěchá").replace("Lowest","E wishlist").replace("Low","D nedůležité, nespěchá").replace("Normal","Přiřadit")}``}get
+.replace("Highest","A důležité, spěchá").replace("High","B nedůležité, spěchá").replace("Medium","C důležité, nespěchá").replace("Low","D nedůležité, nespěchá").replace("Lowest","E wishlist").replace("Normal","Přiřadit")}``}get
 "@
     },
     # strings for context menu and remove icon (because of accesskey); 
@@ -26,7 +26,7 @@ $replacements = @(
 toLowerCase()} priority
 "@
         NewValue = @"
-toLowerCase().replace("highest","AA důležité, spěchá").replace("high","BB nedůležité, spěchá").replace("medium","CC důležité, nespěchá").replace("lowest","DD wishlist").replace("low","EE nedůležité, nespěchá")}
+toLowerCase().replace("highest","AA důležité, spěchá").replace("high","BB nedůležité, spěchá").replace("medium","CC důležité, nespěchá").replace("low","DD nedůležité, nespěchá").replace("lowest","EE wishlist")}
 "@
     }
 )
