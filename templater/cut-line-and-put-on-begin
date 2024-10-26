@@ -1,4 +1,4 @@
-<%_*
+<%*
 let cmEditorAct = this.app.workspace.activeLeaf.view.editor;
 
 // Získáme celý obsah souboru
@@ -7,8 +7,8 @@ let fullContent = cmEditorAct.getValue();
 // Získání pozice kurzoru a obsahu aktuálního řádku
 let currentCursor = cmEditorAct.getCursor();
 let currentLine = currentCursor.line;
+let currentCh = currentCursor.ch;  // Získáme také sloupec kurzoru (počet znaků v řádku)
 let lineContents = cmEditorAct.getLine(currentLine);
-
 
 // Zkontrolujeme, že obsah řádku není prázdný
 if (lineContents.trim() !== '') {
@@ -24,7 +24,11 @@ if (lineContents.trim() !== '') {
     // Nastavení nového obsahu souboru zpět do editoru
     cmEditorAct.setValue(newContent);
 
+    // Vrácení kurzoru zpět na původní pozici
+    // Pokud je kurzor v odstraněném řádku, přesuneme ho na začátek dokumentu
+    let newCursorPos = currentLine > 0 ? { line: currentLine, ch: 0 } : { line: 0, ch: 0 };
+    cmEditorAct.setCursor(newCursorPos);
 } else {
     console.log("Řádek je prázdný, nebude zkopírován.");
 }
-_%>
+%>
