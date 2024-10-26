@@ -1,0 +1,5 @@
+<%_* 
+let text = await tp.system.clipboard();
+text = text.replace(/(\r\n|\n|\r)/g, ' '); // Nahradí všechny druhy zalomení řádků mezerami
+tR = text;
+_%>
