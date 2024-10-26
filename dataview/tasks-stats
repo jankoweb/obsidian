@@ -1,6 +1,7 @@
 ```dataviewjs
 async function updateInbox() {
     const filePath = "! 📒my tasks/!📥my.md";
+    const fileLinkTodo = "[[zzz/menu/tasks-to-plan|naplánovat]]";
         
     // Načti soubor
     let file = app.vault.getAbstractFileByPath(filePath);
@@ -13,7 +14,7 @@ async function updateInbox() {
 			let lines = content.split('\n');
 			let lineCount = (lines.length === 1 && lines[0] === "") ? 0 : lines.length;
             // Uprav hodnotu proměnné inbox
-            inbox = `[[!📥work]] (​${lineCount})`;
+            inbox = `[[!📥work]] (​${lineCount}), ${fileLinkTodo}`;
         } catch (err) {
             // Ošetři případnou chybu při čtení souboru
             inbox = "Error reading file: " + err;
@@ -63,7 +64,7 @@ updateInbox().then(inboxValue => {
     dv.paragraph(
         `**bilance** **dnes: ${formatDifference(dayTasks.difference)}** *(+${dayTasks.added}/-${dayTasks.completed})*` +
         `, **t: ${formatDifference(last7DaysTasks.difference)}** *(+${last7DaysTasks.added}/-${last7DaysTasks.completed})*` +
-        `, **m: ${formatDifference(last30DaysTasks.difference)}** *(+${last30DaysTasks.added}/-${last30DaysTasks.completed})* *(+nové/-hotové)* | ${inboxValue}`
+        `, **m: ${formatDifference(last30DaysTasks.difference)}** *(+${last30DaysTasks.added}/-${last30DaysTasks.completed})* | ${inboxValue}`
     );
 });
 ```
