@@ -1,0 +1,18 @@
+```tasks
+not done
+exclude sub-items
+# bez datumu
+no due date
+# bez priority
+priority is none
+
+sort by urgency
+sort by description
+show urgency
+
+#hide tags
+hide edit button 
+hide postpone button 
+short mode
+limit 10
+```
